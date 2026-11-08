@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AI Commander",
+    "name": "AI Commander Cloud",
     "slug": "ai-commander",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -38,7 +38,7 @@
         "android.permission.WAKE_LOCK",
         "android.permission.BLUETOOTH"
       ],
-      "versionCode": 1
+      "versionCode": 2
     },
     "plugins": [
       "expo-secure-store",
