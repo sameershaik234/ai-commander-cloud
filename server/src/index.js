@@ -41,7 +41,7 @@ app.use(cors({ origin: (origin,cb) => (!origin || allowedOrigins.includes(origin
 app.use(express.json({ limit: '2mb' }));
 app.use('/api/auth', rateLimit({ windowMs: 15*60*1000, limit: 30, standardHeaders: 'draft-8', legacyHeaders: false }));
 const port = Number(process.env.PORT || 8787);
-const openai = process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'replace_me' ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
+const openai = process.env.XAI_API_KEY && process.env.XAI_API_KEY !== 'replace_me' ? new OpenAI({ apiKey: process.env.XAI_API_KEY, baseURL: 'https://api.x.ai/v1' }) : null;
 let controlMode = 'running';
 const addLog = (type, message) => { exec('INSERT INTO logs(id,type,message,at) VALUES(?,?,?,?)',[crypto.randomUUID(),type,String(message).slice(0,500),new Date().toISOString()]); };
 const ownerCount = () => query('SELECT COUNT(*) AS n FROM owners')[0].n;
@@ -79,7 +79,7 @@ app.post('/api/chat',auth,async(req,res)=>{
  if(!openai)return res.status(503).json({error:'Add OPENAI_API_KEY to server/.env to enable AI responses.'});
  const enabled=query('SELECT id,name,description FROM agents WHERE enabled=1 AND id<>\'master\'');
  const prompt=`You are AI Commander, the owner's master AI agent. Select the most relevant enabled specialist and say which one you selected. Available specialists: ${enabled.map(a=>`${a.id}: ${a.name} — ${a.description}. ${specialistPrompts[a.id]||''}`).join('\n')}\n\nRules: obey lawful owner instructions within safety boundaries; never claim external actions without tool confirmation; require explicit owner approval before sending messages, purchasing, payments, refunds, deletion, publishing, deployment or account changes; do not self-delete or bypass owner controls; explain uncertainty.\n\nOwner request: ${message}`;
- try { const response=await openai.responses.create({model:process.env.OPENAI_MODEL||'gpt-6.1-sol',input:prompt}); const answer=response.output_text||'No text response returned.'; const id=crypto.randomUUID(),createdAt=new Date().toISOString(); exec('INSERT INTO tasks(id,request,answer,status,created_at) VALUES(?,?,?,?,?)',[id,message,answer,'completed',createdAt]); addLog('task',`Completed request: ${message.slice(0,100)}`); res.json({answer,task:{id,request:message,answer,status:'completed',created_at:createdAt}}); }
+ try { const response=await openai.responses.create({model:process.env.OPENAI_MODEL||'grok-4.7',input:prompt}); const answer=response.output_text||'No text response returned.'; const id=crypto.randomUUID(),createdAt=new Date().toISOString(); exec('INSERT INTO tasks(id,request,answer,status,created_at) VALUES(?,?,?,?,?)',[id,message,answer,'completed',createdAt]); addLog('task',`Completed request: ${message.slice(0,100)}`); res.json({answer,task:{id,request:message,answer,status:'completed',created_at:createdAt}}); }
  catch(err){console.error('OPENAI_ERROR:',err.status,err.code,err.message);addLog('error',err.message);res.status(502).json({error:'OpenAI request failed. Check the server log and API configuration.'});}
 });
 app.post('/api/voice/session',auth,async(req,res)=>{
