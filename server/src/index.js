@@ -33,6 +33,7 @@ const exec = (sql, params = []) => { db.run(sql, params); persist(); };
 if (query('SELECT id FROM agents').length === 0) for (const a of initialAgents) db.run('INSERT INTO agents(id,name,role,description,enabled) VALUES(?,?,?,?,?)',[a.id,a.name,a.role,a.description,a.enabled?1:0]);
 persist();
 const app = express();
+app.set('trust proxy', 1);
 app.disable('x-powered-by');
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 const allowedOrigins=(process.env.CLIENT_ORIGIN || 'http://localhost:5173,http://127.0.0.1:5173').split(',');
