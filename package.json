@@ -1,0 +1,16 @@
+{
+  "name": "ai-commander",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install && npm --prefix desktop install && npm --prefix mobile install",
+    "dev": "concurrently -k -n API,WEB -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build:web": "npm --prefix client run build",
+    "desktop:win": "npm run build:web && npm --prefix desktop run dist -- --win",
+    "desktop:mac": "npm run build:web && npm --prefix desktop run dist -- --mac",
+    "desktop:linux": "npm run build:web && npm --prefix desktop run dist -- --linux"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

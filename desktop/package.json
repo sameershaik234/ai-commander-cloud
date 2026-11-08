@@ -1,0 +1,45 @@
+{
+  "name": "ai-commander-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.aicommander.desktop",
+    "productName": "AI Commander",
+    "files": [
+      "main.cjs"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    },
+    "extraResources": [
+      {
+        "from": "../client/dist",
+        "to": "client-dist"
+      }
+    ]
+  }
+}

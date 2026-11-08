@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "AI Commander",
+    "slug": "ai-commander",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "bundleIdentifier": "com.aicommander.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "AI Commander uses the microphone for live voice conversations."
+      },
+      "bitcode": false
+    },
+    "android": {
+      "package": "com.aicommander.app",
+      "permissions": [
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.CAMERA",
+        "android.permission.INTERNET",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.WAKE_LOCK",
+        "android.permission.BLUETOOTH"
+      ],
+      "versionCode": 1
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "Allow AI Commander to access the camera.",
+          "microphonePermission": "Allow AI Commander to access the microphone for voice conversations."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "678057a6-9667-462b-9404-6b6dccaaa3ec"
+      }
+    }
+  }
+}
