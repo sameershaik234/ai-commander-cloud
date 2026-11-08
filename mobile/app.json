@@ -25,6 +25,17 @@
         "android.permission.RECORD_AUDIO",
         "android.permission.SYSTEM_ALERT_WINDOW",
         "android.permission.WAKE_LOCK",
+        "android.permission.BLUETOOTH",
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.CAMERA",
+        "android.permission.INTERNET",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.WAKE_LOCK",
         "android.permission.BLUETOOTH"
       ],
       "versionCode": 1
@@ -37,12 +48,17 @@
           "cameraPermission": "Allow AI Commander to access the camera.",
           "microphonePermission": "Allow AI Commander to access the microphone for voice conversations."
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "extra": {
       "eas": {
         "projectId": "678057a6-9667-462b-9404-6b6dccaaa3ec"
       }
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/678057a6-9667-462b-9404-6b6dccaaa3ec"
     }
   }
 }
