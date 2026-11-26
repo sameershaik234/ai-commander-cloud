@@ -97,7 +97,7 @@ def motion(el, u, t):
         elif a == "slide_left": dx += 700 * (1 - ease(u / 0.6))
         elif a == "slide_right": dx -= 700 * (1 - ease(u / 0.6))
         elif a == "grow": sc *= ease(u / 1.2)
-        elif a == "shrink": sc *= lerp(1, 0.35, ease(u / 1.5))
+        elif a == "shrink": sc *= lerp(1, 0.55, ease(u / 1.5))
         elif a == "none": pass
     if "to" in el:  # move from (x,y) to "to" over "move_dur"
         p = ease(u / el.get("move_dur", 1.0))
@@ -231,7 +231,7 @@ top, bot = col(spec.get("bg_top", [20, 24, 38])), col(spec.get("bg_bottom", [10,
 for yy in range(H):
     dbg.line([(0, yy), (W, yy)], fill=tuple(int(lerp(top[i], bot[i], yy / H)) for i in range(3)) + (255,))
 _tsz = 84
-while _tsz > 56 and font(_tsz).getlength(spec["title_card"].upper()) > 960: _tsz -= 4
+while _tsz > 72 and font(_tsz).getlength(spec["title_card"].upper()) > 960: _tsz -= 4  # then wraps to 2 lines
 TITLE = text_sprite(spec["title_card"].upper(), _tsz, col("white"), stroke=3, maxw=1040)
 
 def frame_at(t):

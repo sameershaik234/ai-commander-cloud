@@ -1,0 +1,56 @@
+{
+ "title_card": "Why GTA 6 Isn't In Florida",
+ "lang": "hi", "voice": "hm_omega", "speed": 1.15,
+ "lines": [
+  {"scene": 0, "text": "सोचिए, आप जी टी ए सिक्स में वाइस सिटी की सड़कों पर गाड़ी दौड़ा रहे हैं — सब कुछ बिल्कुल मियामी जैसा दिखता है।", "caption": "You're speeding through Vice City in GTA 6 — and it all looks exactly like Miami."},
+  {"scene": 1, "text": "लेकिन नक्शे पर फ्लोरिडा कहीं नहीं है।", "caption": "But Florida is nowhere on the map."},
+  {"scene": 2, "text": "उसकी जगह है लियोनिडा — एक नकली राज्य, जो फ्लोरिडा की कॉपी है।", "caption": "Instead, there's Leonida — a fake state that copies Florida."},
+  {"scene": 2, "text": "इसे कहते हैं पैरोडी वर्ल्ड।", "caption": "This is called a parody world."},
+  {"scene": 3, "text": "असली वजह ये है: असली शहर में हर दुकान, हर ब्रांड, हर बिल्डिंग किसी न किसी की प्रॉपर्टी होती है।", "caption": "Here's the real reason: in a real city, every shop, brand and building belongs to someone."},
+  {"scene": 3, "text": "उन्हें दिखाने के लिए परमिशन चाहिए, और उनका मज़ाक उड़ाना तो और भी मुश्किल।", "caption": "Showing them needs permission — and mocking them is even harder."},
+  {"scene": 4, "text": "इसलिए रॉकस्टार अपने खुद के ब्रांड बनाता है — जैसे स्प्राइट की जगह स्प्रंक।", "caption": "So Rockstar invents its own brands — like Sprunk instead of Sprite."},
+  {"scene": 5, "text": "और नकली राज्य में वो सैकड़ों किलोमीटर को एक छोटे नक्शे में दबा सकते हैं, सिर्फ़ मज़ेदार हिस्से रखकर।", "caption": "And in a fake state, they can squeeze hundreds of kilometres into one small map — keeping only the fun parts."},
+  {"scene": 6, "text": "लॉस सैंटोस असल में लॉस एंजेलिस था, और लिबर्टी सिटी न्यूयॉर्क।", "caption": "Los Santos was really Los Angeles. Liberty City was New York."},
+  {"scene": 6, "text": "तो याद रखिए — ये मियामी नहीं, मियामी का मज़ाक है।", "caption": "So remember — it's not Miami. It's a joke about Miami."}
+ ],
+ "scenes": [
+  {"elements": [
+   {"type": "text", "text": "VICE CITY", "y": 560, "size": "lg", "color": "pink", "anim": "pop"},
+   {"type": "emoji", "char": "🌴", "x": 190, "y": 820, "size": 240, "anim": ["pop", "float"]},
+   {"type": "emoji", "char": "🌴", "x": 890, "y": 820, "size": 240, "anim": ["pop", "float"], "at": 0.2},
+   {"type": "emoji", "char": "🏎️", "x": 540, "y": 1120, "size": 320, "anim": "slide_left", "at": 0.4},
+   {"type": "badge", "text": "= MIAMI?", "y": 1360, "color": "pink", "at_word": [0, 13]}
+  ]},
+  {"elements": [
+   {"type": "emoji", "char": "🗺️", "x": 540, "y": 900, "size": 420, "anim": "pop"},
+   {"type": "cross", "x": 540, "y": 900, "size": 360, "at": 0.9},
+   {"type": "text", "text": "NO FLORIDA", "y": 1330, "size": "lg", "color": "red", "at": 0.9, "anim": "shake"}
+  ]},
+  {"elements": [
+   {"type": "emoji", "char": "🏝️", "x": 540, "y": 900, "size": 360, "anim": "pop"},
+   {"type": "text", "text": "LEONIDA", "y": 600, "size": "xl", "color": "yellow", "anim": "pop", "at": 0.3},
+   {"type": "badge", "text": "PARODY WORLD", "y": 1330, "at_line": 3}
+  ]},
+  {"elements": [
+   {"type": "grid", "char": "🏢", "n": 12, "cols": 4, "size": 110, "y": 860},
+   {"type": "text", "text": "™  ©  ®", "y": 1170, "size": "lg", "color": "dim", "at": 1.2, "anim": "fade"},
+   {"type": "badge", "text": "PERMISSION NEEDED", "y": 1340, "color": "red", "text_color": "white", "at_line": 5}
+  ]},
+  {"elements": [
+   {"type": "emoji", "char": "🥤", "x": 540, "y": 880, "size": 340, "anim": ["pop", "pulse"]},
+   {"type": "text", "text": "SPRITE", "x": 300, "y": 1220, "size": "md", "color": "dim", "at": 1.0},
+   {"type": "arrow", "from": [440, 1220], "to": [620, 1220], "color": "yellow", "at": 1.6},
+   {"type": "text", "text": "SPRUNK", "x": 790, "y": 1220, "size": "md", "color": "green", "at": 2.0},
+   {"type": "badge", "text": "FAKE BRANDS", "y": 600, "color": "green", "at": 0.5}
+  ]},
+  {"elements": [
+   {"type": "emoji", "char": "🗺️", "x": 540, "y": 920, "size": 460, "anim": ["pop", "shrink"]},
+   {"type": "text", "text": "100s OF KM", "y": 580, "size": "lg", "color": "white", "anim": "fade"},
+   {"type": "badge", "text": "ONLY THE FUN PARTS", "y": 1340, "color": "green", "at": 2.2}
+  ]},
+  {"elements": [
+   {"type": "steps", "items": ["LOS SANTOS = LA", "LIBERTY CITY = NYC", "VICE CITY = MIAMI"], "y": 880, "spacing": 175, "size": "md", "gap": 0.9},
+   {"type": "badge", "text": "A JOKE ABOUT MIAMI", "y": 1340, "color": "pink", "at_line": 9}
+  ]}
+ ]
+}

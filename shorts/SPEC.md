@@ -42,6 +42,8 @@ Frame is 1080×1920. Fixed layout, so keep content inside the **content zone y =
 | `box` | `x`, `y`, `w`, `h`, `color`, `fill` |
 | `progress` | `x`, `y`, `w`, `to` (0–1), `dur`, `color` |
 
+Don't put emoji inside `text`, `badge` or `steps` strings, because they render as plain outlines. Use a separate `emoji` element.
+
 Colors: `white dim yellow red blue lightblue green orange purple pink`, or `[r,g,b]`.
 
 ## Check before rendering
