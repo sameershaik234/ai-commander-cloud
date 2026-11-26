@@ -9,8 +9,8 @@ Frame is 1080×1920. Fixed layout, so keep content inside the **content zone y =
 ```json
 {
   "title_card": "Why Ice Floats",          // 2-5 words, shown upper-case
-  "voice": "am_michael", "speed": 1.12,     // keep these defaults
-  "lines": [ {"scene": 0, "text": "Narration sentence.", "pause_after": 0.18}, ... ],
+  "lang": "hi", "voice": "hm_omega", "speed": 1.15,   // Hindi narration (English: "en-us", "am_michael", 1.12)
+  "lines": [ {"scene": 0, "text": "बोली जाने वाली हिंदी लाइन", "caption": "English subtitle for this line", "pause_after": 0.18}, ... ],
   "scenes": [ {"elements": [ ... ]}, ... ]
 }
 ```
@@ -47,4 +47,4 @@ Colors: `white dim yellow red blue lightblue green orange purple pink`, or `[r,g
 ## Check before rendering
 `./make_video.sh specs/<slug>.json --preview` writes `out/<slug>/preview.png` with one frame per scene. Look at it for overlaps, text running off the screen, and empty scenes, then render without `--preview`.
 
-Worked example: `specs/example-sky-blue.json`.
+Worked examples: `specs/example-sky-blue-hindi.json` (Hindi voice, English subtitles) and `specs/example-sky-blue.json` (English).

@@ -13,14 +13,15 @@ os.makedirs(out, exist_ok=True)
 k = Kokoro(f"{models}/kokoro.onnx", f"{models}/voices.bin")
 voice = spec.get("voice", "am_michael")
 speed = float(spec.get("speed", 1.12))
+lang = spec.get("lang", "en-us")  # "hi" for Hindi narration
 
 chunks, meta, t, sr = [], [], 0.0, 24000
 for i, ln in enumerate(spec["lines"]):
-    a, sr = k.create(ln["text"], voice=voice, speed=speed, lang="en-us")
+    a, sr = k.create(ln["text"], voice=voice, speed=speed, lang=lang)
     nz = np.where(np.abs(a) > 0.01)[0]
     a = a[max(0, nz[0] - 600): nz[-1] + 1200]
     dur = len(a) / sr
-    meta.append({"i": i, "scene": ln["scene"], "text": ln["text"], "start": t, "end": t + dur})
+    meta.append({"i": i, "scene": ln["scene"], "text": ln["text"], "caption": ln.get("caption", ln["text"]), "start": t, "end": t + dur})
     pause = float(ln.get("pause_after", 0.18))
     chunks += [a, np.zeros(int(sr * pause), dtype=a.dtype)]
     t += dur + pause

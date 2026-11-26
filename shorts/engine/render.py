@@ -214,7 +214,7 @@ def el_start(el, si):
 
 caps = []
 for ln in lines:
-    words = [w for w in ln["text"].split() if w not in ("—", "-", "–")]
+    words = [w for w in ln.get("caption", ln["text"]).split() if w not in ("—", "-", "–")]  # English subtitle
     chunks = [[]]
     for w_ in words:
         if chunks[-1] and (font(70).getlength(" ".join(chunks[-1] + [w_])) > 900 or len(chunks[-1]) >= 4):

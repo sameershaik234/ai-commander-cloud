@@ -11,27 +11,37 @@ Never publish anywhere else, and never publish more than one video per run.
 cd shorts && ./setup.sh
 ```
 
-## 2. Pick the topic
-- Slot index: `k = floor((now_utc - 2026-11-26T18:30:00Z) / 8h)`. Topic = row `index == k % 90` of `topics.csv`.
-- Duplicate check: call `vidiq_channel_videos` (or `vidiq_user_videos`) for the channel and look at the recent titles.
-  If this topic is already covered, use the next row that isn't. If every row is covered, choose a new
-  science/psychology/math "why/how" topic that isn't on the channel.
-- If `vidiq_social_post_list` shows a YouTube post from the last 6 hours, a run already happened for this slot. **Stop without publishing.**
+## 2. Pick a TRENDING topic
+The goal is a topic people are searching for right now, explained in the channel's explainer style.
+1. Check if a run already happened for this slot: if `vidiq_social_post_list` shows a YouTube post from the last 6 hours, **stop without publishing.**
+2. Gather trends (all free vidIQ calls): `vidiq_trending_videos` (India / Hindi and global, the science, education and tech categories), `vidiq_outliers`,
+   `vidiq_youtube_video_idea`, and `vidiq_keyword_research` to confirm search demand for your candidate.
+3. Choose ONE topic that is (a) trending or high-demand right now, (b) explainable as a "why/how" science, tech, psychology,
+   space, money or body explainer in under 60 s, (c) family-friendly and **not** breaking news, politics, religion, tragedy, medical advice,
+   or someone else's copyrighted show, game or character.
+   Good example: a viral space event becomes "why does that happen".
+4. Duplicate check: `vidiq_channel_videos` or `vidiq_user_videos` for the channel. Don't repeat a topic already on it.
+5. If nothing trending fits, fall back to `topics.csv`: row `k % 90` where `k = floor((now_utc - 2026-11-26T18:30:00Z) / 8h)`,
+   skipping topics already on the channel.
 
-## 3. Script
-Follow `skills/scriptwriter.md` exactly (also available as the skill `youtube-shorts-automation-main:things-explained-scriptwriter`):
-130–150 words, Scenario → Name-drop → Mechanism → Loop. The last line flows back into the first.
-**Fact-check every claim and number.** If you aren't sure a number is right, cut it.
-Keep it family-friendly: no medical advice, politics or disasters involving real victims.
+## 3. Script: Hindi voice, English subtitles
+Follow the structure in `skills/scriptwriter.md` (Scenario → Name-drop → Mechanism → Loop; the last line flows back into the first), but:
+- Each line has `text` = **spoken Hindi** in Devanagari: natural, everyday conversational Hindi, the way a friendly Indian
+  science YouTuber talks. Common English science words are fine in Devanagari (साइंटिस्ट, स्कैटरिंग).
+  Write numbers as Hindi words. Avoid heavy Sanskritised Hindi.
+- Each line has `caption` = a natural **English** translation of that line. These become the on-screen subtitles.
+- Length: **110–125 Hindi words** in total, because Hindi takes longer to say. Spec settings: `"lang": "hi", "voice": "hm_omega", "speed": 1.15`.
+- **Fact-check every claim and number.** If you aren't sure a number is right, cut it.
 
 ## 4. Spec and render
-- Write `specs/<slug>.json` following `SPEC.md` (see `specs/example-sky-blue.json`). Every scene needs a clear emoji or diagram that matches what's being said.
+- Write `specs/<slug>.json` following `SPEC.md` (see `specs/example-sky-blue-hindi.json`). Every scene needs a clear emoji or diagram that matches what's being said.
+  On-screen labels, badges and the title card are in **English**.
 - `./make_video.sh specs/<slug>.json --preview`, then **look at** `out/<slug>/preview.png`. Fix overlaps, text off the screen or empty scenes, then repeat.
 - `./make_video.sh specs/<slug>.json`. Check that the video is 40–58 s long: `ffprobe -v error -show_entries format=duration -of csv=p=0 out/<slug>/video.mp4`.
-  If it's longer than 58 s, shorten the script. Over 60 s it isn't a Short.
+  If it's longer than 58 s, cut Hindi words and re-render. Over 60 s it isn't a Short.
 
 ## 5. Metadata
-Follow `skills/metadata.md`. Use the Option A (curiosity) title, under 55 characters. The description is the summary, a question for comments, a blank line, then 4–5 hashtags starting with `#shorts`. Write one pinned-comment line.
+Follow `skills/metadata.md`, in **English**. Add "(Hindi)" or "| हिंदी" at the end only if it fits in 55 characters. Use the Option A (curiosity) title, built around the trending keyword. Include `#hindi` among the hashtags. The description is the summary, a question for comments, a blank line, then 4–5 hashtags starting with `#shorts`. Write one pinned-comment line.
 
 ## 6. Publish (vidIQ)
 1. `vidiq_video_upload` with `localFile` {path, sizeBytes (`wc -c`), contentType `video/mp4`}. Run the returned shell command exactly, then call `vidiq_video_upload` with `uploadId` until the status is `ready`.
