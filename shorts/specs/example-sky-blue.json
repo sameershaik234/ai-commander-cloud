@@ -1,0 +1,55 @@
+{
+  "title_card": "Why Is The Sky Blue",
+  "voice": "am_michael",
+  "speed": 1.12,
+  "lines": [
+    {"scene": 0, "text": "You're looking up on a perfectly clear afternoon, and the whole sky is glowing blue."},
+    {"scene": 0, "text": "But sunlight isn't blue at all — it's white."},
+    {"scene": 1, "text": "That white light is every color mixed together, from red to violet."},
+    {"scene": 1, "text": "So where did all the other colors go?"},
+    {"scene": 1, "text": "Physicists call this Rayleigh scattering."},
+    {"scene": 2, "text": "Here's the catch: air is packed with tiny nitrogen and oxygen molecules, far smaller than a wave of light."},
+    {"scene": 3, "text": "When sunlight hits them, short blue waves get bounced around nearly six times more than long red waves."},
+    {"scene": 4, "text": "So blue light ricochets across the whole sky and reaches your eyes from every direction."},
+    {"scene": 4, "text": "Red and yellow mostly pass straight through."},
+    {"scene": 5, "text": "At sunset, light crosses so much air that the blue gets scattered away — leaving the reds behind."},
+    {"scene": 5, "text": "And tomorrow afternoon, when you're looking up"}
+  ],
+  "scenes": [
+    {"elements": [
+      {"type": "emoji", "char": "☀️", "x": 540, "y": 650, "size": 260, "anim": ["pop", "float"]},
+      {"type": "emoji", "char": "🧍", "x": 540, "y": 1150, "size": 260, "anim": "pop", "at": 0.4},
+      {"type": "badge", "text": "SUNLIGHT = WHITE", "y": 1380, "at_line": 1}
+    ]},
+    {"elements": [
+      {"type": "emoji", "char": "🌈", "x": 540, "y": 850, "size": 420, "anim": "pop"},
+      {"type": "text", "text": "?", "x": 880, "y": 620, "size": "xl", "color": "yellow", "at_line": 3, "anim": ["pop", "pulse"]},
+      {"type": "badge", "text": "RAYLEIGH SCATTERING", "y": 1350, "at_line": 4}
+    ]},
+    {"elements": [
+      {"type": "emoji", "char": "☀️", "x": 200, "y": 560, "size": 180},
+      {"type": "arrow", "from": [290, 640], "to": [560, 860], "color": "white", "at": 0.5},
+      {"type": "grid", "char": "⚪", "n": 16, "cols": 4, "size": 60, "x": 720, "y": 1020, "at": 0.8},
+      {"type": "text", "text": "N₂ + O₂ molecules", "y": 1330, "size": "sm", "color": "lightblue", "at": 1.5, "anim": "fade"}
+    ]},
+    {"elements": [
+      {"type": "text", "text": "HOW MUCH LIGHT GETS SCATTERED", "y": 560, "size": "sm", "color": "dim", "anim": "fade"},
+      {"type": "bars", "y": 1300, "height": 560, "items": [
+        {"label": "BLUE", "value": 5.9, "color": "blue", "text": "≈ 6×"},
+        {"label": "RED", "value": 1.0, "color": "red", "text": "1×"}
+      ]}
+    ]},
+    {"elements": [
+      {"type": "emoji", "char": "🧍", "x": 540, "y": 1180, "size": 240},
+      {"type": "arrow", "from": [120, 620], "to": [450, 1050], "color": "blue", "at": 0.2},
+      {"type": "arrow", "from": [540, 520], "to": [540, 1000], "color": "blue", "at": 0.5},
+      {"type": "arrow", "from": [960, 620], "to": [630, 1050], "color": "blue", "at": 0.8},
+      {"type": "arrow", "from": [60, 780], "to": [1020, 780], "color": "red", "at_line": 8},
+      {"type": "text", "text": "blue from everywhere", "y": 1380, "size": "sm", "color": "blue", "at": 1.2, "anim": "fade"}
+    ]},
+    {"elements": [
+      {"type": "emoji", "char": "🌇", "x": 540, "y": 880, "size": 440, "anim": "pop"},
+      {"type": "badge", "text": "MORE AIR = LESS BLUE", "y": 1350, "color": "orange", "at": 1.0}
+    ]}
+  ]
+}
