@@ -1,10 +1,10 @@
 {
   "name": "ai-commander-mobile",
-  "version": "0.2.0",
+  "version": "1.1.0",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start --dev-client",
+    "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "prebuild": "expo prebuild",
@@ -12,20 +12,20 @@
     "build:apk:cloud": "npx eas-cli build --platform android --profile preview"
   },
   "dependencies": {
-    "@config-plugins/react-native-webrtc": "^10.0.0",
+    "@react-native-async-storage/async-storage": "1.23.1",
     "expo": "~52.0.0",
     "expo-asset": "~11.0.5",
     "expo-av": "~15.0.2",
     "expo-blur": "~14.0.3",
-    "expo-dev-client": "~5.0.20",
+    "expo-clipboard": "~7.0.1",
+    "expo-file-system": "~18.0.12",
+    "expo-image-picker": "~16.0.6",
     "expo-linear-gradient": "~14.0.2",
     "expo-secure-store": "~14.0.0",
     "expo-speech": "~13.0.1",
     "expo-status-bar": "~2.0.1",
     "expo-updates": "~0.27.5",
-    "fs-extra": "^11.4.1",
     "react": "18.3.1",
-    "react-native": "0.76.9",
-    "react-native-webrtc": "^124.0.4"
+    "react-native": "0.76.9"
   }
 }

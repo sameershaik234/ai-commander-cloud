@@ -1,4 +1,27 @@
-# AI Commander — Local Edition
+# AI Commander — AI assistant for every activity (Android APK)
+
+**What it does:** one chat app with 18 activities — General (auto), Study Tutor, Writer, Messages, Translator, Coding, Business, Money, Health & Fitness, Cooking, Travel, Daily Planner, Career, Research, Shopping, Design, Phone Help and Photo Reader.
+
+- 💬 Multi-turn chat (remembers the conversation, saved on the phone)
+- 🎤 Voice: tap the mic, speak, tap ⏹ — it transcribes and answers
+- 🔊 Read answers aloud
+- 📷 Ask about photos, screenshots or homework (camera or gallery)
+- 📋 Long-press any answer to copy, share or listen
+- ⚙️ Turn activities on/off, pause/stop the assistant
+
+## Quick start (phone only, no PC)
+
+1. **Get a free AI key:** sign up at https://console.groq.com/keys and create an API key.
+2. **Deploy the server:** on https://dashboard.render.com create a *Blueprint* from this repo. In the service's *Environment* tab set `GROQ_API_KEY` to your key. Note the generated `OWNER_SETUP_KEY`.
+3. **Get the APK:** in this GitHub repo open **Actions → Build Android APK → Run workflow** (or just push a change under `mobile/`). When it finishes (~15 min), download **AI-Commander-apk** from the run page (builds on `main` also appear under **Releases**). Unzip if needed and open `AI-Commander.apk` to install.
+4. **Open the app:** paste your Render URL (`https://….onrender.com`), tap *Save & test server*, then *Create owner account* with your email, a 12+ character password and the `OWNER_SETUP_KEY`.
+
+Never put API keys in the app or in GitHub — only in Render's environment settings.
+
+---
+
+## Older detailed guide (Expo EAS build)
+
 
 An owner-controlled, local-first AI assistant with a React web dashboard, Electron desktop shell, Expo mobile client, OpenAI Responses API text chat, Realtime voice sessions, JWT owner authentication, and persistent SQLite storage.
 

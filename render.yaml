@@ -18,6 +18,10 @@ services:
         value: 0.0.0.0
       - key: DATA_DIR
         value: /var/data
+      # Paste your free Groq key (https://console.groq.com/keys) here in the Render dashboard.
+      - key: GROQ_API_KEY
+        sync: false
+      # Optional: use OpenAI instead of Groq.
       - key: OPENAI_API_KEY
         sync: false
       - key: JWT_SECRET
