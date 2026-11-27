@@ -2,14 +2,15 @@
 const { chromium } = require('playwright'); const { spawn } = require('child_process'); const http = require('http');
 const fs = require('fs'), path = require('path');
 const root = __dirname, [out, wav, flag, times] = process.argv.slice(2);
+const PAGE = process.env.PAGE || 'scene.html', DATAF = process.env.DATA || 'data.json';
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json' };
 const srv = http.createServer((q, r) => { const f = path.join(root, decodeURIComponent(q.url.split('?')[0])); fs.readFile(f, (e, d) => { if (e) { r.writeHead(404); r.end(); return; } r.writeHead(200, { 'Content-Type': types[path.extname(f)] || 'application/octet-stream' }); r.end(d); }); }).listen(8765);
 (async () => {
   const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   p.on('pageerror', e => console.error('PAGE ERROR', e.message)); p.on('console', m => m.type() === 'error' && console.error('console', m.text()));
-  await p.goto('http://localhost:8765/scene.html'); await p.waitForFunction('window.ready === true', null, { timeout: 120000 });
-  const data = JSON.parse(fs.readFileSync(path.join(root, 'data.json')));
+  await p.goto('http://localhost:8765/' + PAGE); await p.waitForFunction('window.ready === true', null, { timeout: 120000 });
+  const data = JSON.parse(fs.readFileSync(path.join(root, DATAF)));
   if (flag === '--preview') {
     const ts = times.split(',').map(Number); let i = 0;
     for (const t of ts) { await p.evaluate(t => window.renderAt(t), t); await p.screenshot({ path: `${out}_${i++}.jpg`, type: 'jpeg', quality: 80 }); }
