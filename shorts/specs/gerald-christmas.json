@@ -1,0 +1,14 @@
+{
+ "title_card": "Gerald's Christmas",
+ "lang": "en-us", "voice": "bm_fable", "speed": 1.05,
+ "lines": [
+  {"scene": 0, "text": "Remember Gerald? Nobody stopped him before Christmas.", "pause_after": 0.5},
+  {"scene": 1, "text": "So now he owns three hundred boxes, and has no idea what's inside.", "pause_after": 0.45},
+  {"scene": 2, "text": "Gerald did the only thing he could. He wrapped them all.", "pause_after": 0.5},
+  {"scene": 3, "text": "Then he heard about Christmas dinner. Gerald is a turkey.", "pause_after": 0.6},
+  {"scene": 4, "text": "So he stacked every present into a giant Christmas tree,", "pause_after": 0.25},
+  {"scene": 5, "text": "and hid on top, pretending to be the star.", "pause_after": 0.5},
+  {"scene": 6, "text": "Nobody noticed. Merry Christmas, Gerald. See you at New Year's."}
+ ],
+ "scenes": [{},{},{},{},{},{},{}]
+}
