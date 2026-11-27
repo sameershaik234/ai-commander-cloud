@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "AI Commander Cloud",
+    "name": "AI Commander",
     "slug": "ai-commander",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
     "ios": {
       "bundleIdentifier": "com.aicommander.app",
       "infoPlist": {
-        "NSMicrophoneUsageDescription": "AI Commander uses the microphone for live voice conversations."
+        "NSMicrophoneUsageDescription": "AI Commander uses the microphone so you can talk to the assistant.",
+        "NSCameraUsageDescription": "AI Commander uses the camera so you can ask about photos.",
+        "NSPhotoLibraryUsageDescription": "AI Commander lets you pick photos to ask the assistant about."
       },
       "bitcode": false
     },
@@ -18,38 +20,27 @@
         "RECORD_AUDIO",
         "MODIFY_AUDIO_SETTINGS",
         "INTERNET",
-        "android.permission.ACCESS_NETWORK_STATE",
-        "android.permission.CAMERA",
-        "android.permission.INTERNET",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.SYSTEM_ALERT_WINDOW",
-        "android.permission.WAKE_LOCK",
-        "android.permission.BLUETOOTH",
-        "RECORD_AUDIO",
-        "MODIFY_AUDIO_SETTINGS",
-        "INTERNET",
-        "android.permission.ACCESS_NETWORK_STATE",
-        "android.permission.CAMERA",
-        "android.permission.INTERNET",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.SYSTEM_ALERT_WINDOW",
-        "android.permission.WAKE_LOCK",
-        "android.permission.BLUETOOTH"
+        "CAMERA"
       ],
-      "versionCode": 2
+      "versionCode": 3,
+      "softwareKeyboardLayoutMode": "resize"
     },
     "plugins": [
       "expo-secure-store",
+      "expo-asset",
       [
-        "@config-plugins/react-native-webrtc",
+        "expo-image-picker",
         {
-          "cameraPermission": "Allow AI Commander to access the camera.",
-          "microphonePermission": "Allow AI Commander to access the microphone for voice conversations."
+          "photosPermission": "Allow AI Commander to open your photos so you can ask about them.",
+          "cameraPermission": "Allow AI Commander to use the camera so you can ask about photos."
         }
       ],
-      "expo-asset"
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow AI Commander to use the microphone so you can talk to the assistant."
+        }
+      ]
     ],
     "extra": {
       "eas": {
