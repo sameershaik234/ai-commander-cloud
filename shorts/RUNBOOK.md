@@ -22,7 +22,9 @@ explained as a "why/how" Short. The video uses emoji illustrations only: **no ga
    only officially confirmed GTA 6 info. Never present leaks or rumours as fact; skip anything you can't confirm.
    No piracy, cheats or mods that break game rules, no gambling, no drama about real people.
 4. Duplicate check: `vidiq_channel_videos` or `vidiq_user_videos` for the channel. Don't repeat a topic already on it.
-5. If nothing trending fits, fall back to `topics.csv`: row `k % (number of rows)` where `k = floor((now_utc - 2026-11-26T18:30:00Z) / 8h)`,
+5. vidIQ credits are limited (trend and lookup tools cost about 5 credits; uploads are free). Call `vidiq_balance` first, and if it says a
+   tool costs more than what is left, skip the paid research calls entirely.
+   If nothing trending fits, or credits are too low, fall back to `topics.csv`: row `k % (number of rows)` where `k = floor((now_utc - 2026-11-26T18:30:00Z) / 8h)`,
    skipping topics already on the channel. If a row names a ready-made spec, you may render that spec directly
    after re-checking its facts.
 
