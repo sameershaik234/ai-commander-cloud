@@ -1,0 +1,19 @@
+{
+ "title_card": "Why Is It Called Black Friday?",
+ "lang": "en-us", "voice": "am_michael", "speed": 1.08,
+ "lines": [
+  {"scene": 0, "text": "It's the day after Thanksgiving. Millions of people are lining up before sunrise, and prices are crashing everywhere."},
+  {"scene": 0, "text": "So why would anyone name a day this exciting — Black Friday?"},
+  {"scene": 1, "text": "Most people will tell you it's about money. Stores spend the year in the red, and this is the day their books finally flip into the black."},
+  {"scene": 1, "text": "It's a great story. It just isn't the original one."},
+  {"scene": 2, "text": "Rewind to Philadelphia, in the nineteen fifties and sixties."},
+  {"scene": 2, "text": "Every year, the day after Thanksgiving, shoppers flooded downtown — right before the big Army-Navy football game that Saturday."},
+  {"scene": 3, "text": "Traffic jams. Packed sidewalks. Shoplifters."},
+  {"scene": 3, "text": "Police officers couldn't take the day off — so they gave it a grim nickname: Black Friday."},
+  {"scene": 4, "text": "Store owners hated it. They even tried rebranding it as Big Friday. It didn't stick."},
+  {"scene": 5, "text": "So years later, a happier explanation spread — red ink turning black. By the nineteen eighties, that's the version everyone told."},
+  {"scene": 6, "text": "Today, Black Friday reaches Canada, Britain, and far beyond — and more of it happens on phones than ever."},
+  {"scene": 7, "text": "So the name on every sale banner you'll see today — started as a police complaint."}
+ ],
+ "scenes": [{},{},{},{},{},{},{},{}]
+}

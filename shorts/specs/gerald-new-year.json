@@ -1,0 +1,14 @@
+{
+ "title_card": "Gerald's New Year",
+ "lang": "en-us", "voice": "bm_fable", "speed": 1.05,
+ "lines": [
+  {"scene": 0, "text": "It's New Year's Eve, and Gerald has a resolution. No more shopping. For real this time.", "pause_after": 0.5},
+  {"scene": 1, "text": "He even made a sign, so everyone would know.", "pause_after": 0.4},
+  {"scene": 2, "text": "The countdown began. Three. Two. One!", "pause_after": 0.3},
+  {"scene": 3, "text": "Happy New Year! Fireworks lit up the sky.", "pause_after": 0.5},
+  {"scene": 4, "text": "Then, his phone buzzed. New Year sale. Seventy percent off.", "pause_after": 0.5},
+  {"scene": 5, "text": "Gerald's resolution lasted exactly four seconds.", "pause_after": 0.4},
+  {"scene": 6, "text": "Happy New Year, Gerald. Some things never change."}
+ ],
+ "scenes": [{},{},{},{},{},{},{}]
+}
